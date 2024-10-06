@@ -1,0 +1,637 @@
+version: "3.1"
+
+nlu:
+
+  - intent: greet
+    examples: |
+      - Hi
+      - Hello
+      - Hey
+      - Good morning
+      - Good evening
+      - Hi there
+      - Hello there
+      - Hey, how's it going?
+      - Good day
+      - Greetings
+      - Hi, how are you?
+      - Hello, how's everything?
+      - Hey there
+      - Morning
+      - Evening
+      - Hi, nice to meet you
+      - Hello, nice to see you
+      - Hi, what's up?
+      - Hey, how have you been?
+      - Hi, hope you're doing well
+      - Hey, good to see you
+      - Hello, good afternoon
+      - Hey, how's your day going?
+      - Hi, what's new?
+      - Hey, how are things?
+      - Hello, how do you do?
+      - Hi, glad to see you
+      - Hello, it's great to see you
+      - Hi, how's everything going?
+      - Hey, long time no see
+
+
+  
+
+  - intent: ask_divisions
+    examples: |
+      - Can you tell me about the divisions of DoJ?
+      - What are the divisions in the Department of Justice?
+      - I want to know about the various divisions in DoJ.
+      - Please explain the different divisions in the DoJ.
+      - How many divisions does the Department of Justice have?
+      - What divisions are part of the DoJ?
+      - Which divisions operate under the Department of Justice?
+      - Can you list the divisions of the DoJ?
+      - Tell me about the various divisions within the DoJ.
+      - DoJ has how many divisions?
+      - Could you explain the divisions of the DoJ to me?
+      - What are the major divisions in the Department of Justice?
+      - What sections are included in the DoJ?
+      - How is the Department of Justice divided?
+      - Could you provide a breakdown of the DoJ divisions?
+      - What are the main divisions under the DoJ?
+      - How is the DoJ structured in terms of divisions?
+      - Could you give me an overview of the DoJ divisions?
+      - I'd like to know the divisions under the Department of Justice.
+      - Can you explain what divisions make up the DoJ?
+      - What are the different sections of the Department of Justice?
+      - How is the Department of Justice organized in terms of divisions?
+      - Please give details about the DoJ divisions.
+      - Which divisions fall under the DoJ's structure?
+      - What are the core divisions of the Department of Justice?
+      - How many different divisions are there in the DoJ?
+      - Can you walk me through the DoJ divisions?
+      - I'd like a summary of the divisions in the DoJ.
+      - What divisions exist in the Department of Justice?
+      - Can you tell me about the internal divisions of the DoJ?
+
+  - intent: ask_judges_info
+    examples: |
+      - Show me the judges info
+      - I want to know about the judges
+      - How many judges are there?
+      - Judges info please
+      - No of judges
+      - Appointed judges in India
+      - Number of judges
+      - Count of judges
+      - Selected judges in India
+      - Can you tell me about the judges?
+      - I’d like to know how many judges serve
+      - Provide me with the judges' details
+      - Tell me about the judges in the Supreme Court
+      - What is the total number of judges?
+      - List the judges for me
+      - How many judges are currently appointed?
+      - Info about the judges, please
+      - I want to know the number of judges in the High Court
+      - Are there any new judges appointed?
+      - Give me the judges' statistics
+      - Can you show me the list of judges?
+      - I want details about the judges' appointments
+      - How many judges are there in the District Court?
+      - What’s the latest count of judges?
+      - Tell me about the appointed judges in the country
+      - I'd like to see the judges' information
+      - Provide the current judges list
+      - Can you give me judges' information?
+      - I want to know how judges are selected
+      - What is the process for appointing judges?
+      - Are there any recent changes in the judges' appointments?
+      - How do the judges get appointed in India?
+
+  - intent: choose_court
+    examples: |
+      - I choose the Supreme Court
+      - High Court please
+      - District Court
+      - Show me Subordinate Court info
+      - Supreme Court
+      - High Court
+      - Subordinate Court
+      - I select District Court
+      - Can you provide information about the High Court?
+      - I would like to know about the Supreme Court
+      - Please show me details about the Subordinate Court
+      - I'm interested in the District Court
+      - I want to learn about the Supreme Court
+      - Give me the High Court information
+      - I want details on the Subordinate Court
+      - Show me the District Court details
+      - I would like to see the High Court
+      - Let's go with the Supreme Court
+      - Can you tell me about the District Court?
+      - I'd like information on the High Court
+      - Provide me details about the Subordinate Court
+      - I want the Supreme Court information
+      - High Court, please!
+      - I would like to check the District Court
+      - What about the High Court?
+      - Tell me about the Subordinate Court
+      - I need information on the Supreme Court
+      - Show me the details for the High Court
+      - I'm looking for the District Court info
+      - Let me see the Subordinate Court information
+      - Please tell me about the Supreme Court
+      - I prefer the High Court
+
+  # - intent: select_state
+  #   examples: |
+  #     - Andhra Pradesh
+  #     - Assam
+  #     - Bihar
+  #     - I choose Chhattisgarh
+  #     - Show me Delhi
+  #     - Gujarat please
+  #     - Himachal Pradesh please
+  #     - I choose Jammu & Kashmir
+  #     - Show me Jharkhand
+  #     - Karnataka please
+  #     - Kerala please
+  #     - Show me Madhya Pradesh
+  #     - I choose Manipur
+  #     - Show me Meghalaya
+  #     - Maharashtra please
+  #     - Show me Odisha
+  #     - Show me Punjab & Haryana
+  #     - Show me Rajasthan
+  #     - I choose Sikkim
+  #     - Tamil Nadu please
+  #     - Telangana please
+  #     - Show me Tripura
+  #     - Uttar Pradesh please
+  #     - Show me Uttarakhand
+  #     - I choose West Bengal
+
+
+  - intent: choose_state
+    examples: |
+      - Andhra Pradesh
+      - Assam
+      - Bihar
+      - I choose Gujarat
+      - Show me Karnataka
+      - Delhi please
+      - Show me Andaman and Nicobar
+      - I choose Arunachal Pradesh
+      - Show me Chandigarh
+      - Show me Chhattisgarh
+      - Dadra and Nagar Haveli
+      - Show me Daman and Diu
+      - Goa please
+      - Gujarat please
+      - Haryana please
+      - Himachal Pradesh
+      - Jammu and Kashmir
+      - I choose Jharkhand
+      - Karnataka please
+      - Kerala please
+      - Show me Lakshadweep
+      - Madhya Pradesh please
+      - Show me Manipur
+      - I choose Meghalaya
+      - Show me Maharashtra
+      - Nagaland
+      - Odisha please
+      - Show me Puducherry
+      - Show me Punjab
+      - Show me Rajasthan
+      - Show me Sikkim
+      - I choose Tamil Nadu
+      - Telangana please
+      - Show me Tripura
+      - Uttar Pradesh please
+      - Show me Uttarakhand
+      - I choose West Bengal
+      - Ladakh please
+
+
+  - intent: ask_case_pendency
+    examples: |
+      - What is the pendency of cases in India?
+      - How can I check case pendency?
+      - Show me the National Judicial Data Grid.
+      - What is the current backlog of cases in the courts?
+      - How long do cases usually take to resolve in India?
+      - Where can I find information about case pendency?
+      - Is there a website to check case pendency statistics?
+      - What is the status of case pendency in High Courts?
+      - Can you tell me about the average case pendency time?
+      - How do I access the National Judicial Data Grid?
+      - What does case pendency mean?
+      - How has case pendency changed over the years?
+      - What factors contribute to case pendency?
+      - Are there any efforts to reduce case pendency in India?
+      - What are the consequences of high case pendency?
+      - Can I get updates on specific cases pending in court?
+      - How can I report issues related to case pendency?
+      - Are there statistics available for case pendency by state?
+      - How does case pendency affect the justice system?
+      - What is the government doing about case pendency?
+      - How does case pendency vary across different courts?
+      - Can I get real-time updates on case pendency?
+      - What is the role of the judiciary in managing case pendency?
+      - How can legal professionals access case pendency data?
+      - Is there a difference in pendency for civil and criminal cases?
+      - What tools are available to monitor case pendency?
+      - How can the public help reduce case pendency?
+      - What is the average number of cases pending per court?
+      - How does technology impact case pendency?
+      - What are the latest statistics on case pendency?
+      - Where can I find judicial performance indicators related to pendency?
+
+  - intent: ask_fine_payment
+    examples: |
+      - How can I pay my traffic fine?
+      - What is the procedure to pay fines for traffic violations?
+      - Where do I pay fines for traffic tickets?
+      - Can I pay my traffic fine online?
+      - What payment methods are accepted for traffic fines?
+      - How do I check my outstanding traffic fines?
+      - Is there a deadline for paying traffic fines?
+      - What happens if I don't pay my traffic fine on time?
+      - Can I contest a traffic fine before paying?
+      - How do I get a receipt for my traffic fine payment?
+      - Are there any late fees for traffic fine payments?
+      - Where can I find information about my traffic fines?
+      - Can I set up a payment plan for my traffic fines?
+      - What documents do I need to pay a traffic fine?
+      - Can I pay my fine at the court?
+      - Are traffic fines different in different states?
+      - How can I find out the amount of my traffic fine?
+      - Can I pay my traffic fine in installments?
+      - What should I do if I lost my traffic fine notice?
+      - Is it possible to pay traffic fines using a mobile app?
+      - Are there any discounts available for early fine payments?
+      - How do I report a problem with my fine payment?
+      - Can I pay my fine at a bank?
+      - What if I am unable to pay my traffic fine?
+      - How do I receive confirmation of my fine payment?
+      - What is the process for paying fines for parking violations?
+      - Can I use a credit card to pay my traffic fine?
+      - How long does it take for my fine payment to be processed?
+      - Can I pay my traffic fine over the phone?
+      - What are the consequences of not paying a traffic fine?
+      - Is there a way to dispute a traffic fine after payment?
+
+
+  - intent: ask_fast_track
+    examples: |
+      - Tell me about Fast Track courts.
+      - How do Fast Track Courts work?
+      - What is a Fast Track Court?
+      - What cases are handled by Fast Track Courts?
+      - How can I file a case in a Fast Track Court?
+      - What is the process for Fast Track Court hearings?
+      - Are there specific judges for Fast Track Courts?
+      - What are the advantages of Fast Track Courts?
+      - How quickly can I expect a decision from a Fast Track Court?
+      - Are Fast Track Courts available in my area?
+      - Can I appeal a decision made in a Fast Track Court?
+      - What types of cases are prioritized in Fast Track Courts?
+      - How are Fast Track Courts different from regular courts?
+      - What are the eligibility criteria for Fast Track Courts?
+      - Do Fast Track Courts charge any fees?
+      - How are cases assigned to Fast Track Courts?
+      - What should I prepare for a Fast Track Court hearing?
+      - Is there a difference in procedures for Fast Track Courts?
+      - Can I get legal assistance for Fast Track Court cases?
+      - How can I track my case in a Fast Track Court?
+      - What is the timeline for a Fast Track Court case?
+      - Are there specific rules for evidence in Fast Track Courts?
+      - Can I request a Fast Track hearing for my case?
+      - What happens if my case is not resolved in the Fast Track Court?
+      - How do I know if my case qualifies for Fast Track?
+      - Are there any special accommodations for Fast Track Court?
+      - How can I prepare for a Fast Track Court trial?
+      - What is the role of a lawyer in Fast Track Courts?
+      - How do Fast Track Courts impact the justice system?
+      - Can I choose to go to a Fast Track Court?
+      - What resources are available for Fast Track Court litigants?
+
+
+  - intent: ask_efiling
+    examples: |
+      - How can I use eFiling for my case?
+      - Steps for eFiling?
+      - How do I file my case online?
+      - Can you guide me through the eFiling process?
+      - What is the procedure for eFiling?
+      - How do I complete an eFiling?
+      - What documents do I need for eFiling?
+      - Is there a fee for eFiling my case?
+      - Can I track my eFiling status?
+      - What are the benefits of using eFiling?
+      - How long does the eFiling process take?
+      - Can I edit my eFiling after submission?
+      - What types of cases can I file using eFiling?
+      - How do I register for eFiling?
+      - Is eFiling available in my state?
+      - How do I access the eFiling portal?
+      - Can I use eFiling for appeals?
+      - What happens after I submit my eFiling?
+      - How do I receive confirmation of my eFiling?
+      - What if I encounter issues with eFiling?
+      - Can I get help with my eFiling?
+      - What are the technical requirements for eFiling?
+      - How do I ensure my eFiling is secure?
+      - Are there deadlines for eFiling?
+      - What is the maximum file size for eFiling?
+      - Can I submit multiple documents through eFiling?
+      - How do I withdraw an eFiling?
+      - Are there specific formats required for eFiling documents?
+      - Can I eFile from my mobile device?
+      - What if I miss the eFiling deadline?
+      - Is there customer support available for eFiling?
+
+
+  - intent: ask_tele_law
+    examples: |
+      - How do I use Tele-Law services?
+      - What is Tele-Law and how can I access it?
+      - How to avail Tele-Law services?
+      - Can you explain Tele-Law services to me?
+      - What steps do I need to take to access Tele-Law?
+      - How can I get help from Tele-Law?
+      - What are the benefits of using Tele-Law?
+      - Can I use Tele-Law for legal advice?
+      - How do I connect with a lawyer through Tele-Law?
+      - What is the process for using Tele-Law?
+      - Are Tele-Law services available in my area?
+      - How can I register for Tele-Law services?
+      - What types of legal issues can Tele-Law help with?
+      - Can you guide me on how to use Tele-Law?
+      - Is there a cost associated with Tele-Law services?
+      - How do I book an appointment with Tele-Law?
+      - What information do I need to provide for Tele-Law?
+      - Can Tele-Law services be accessed online?
+      - How can I get Tele-Law support?
+      - What are the hours of operation for Tele-Law?
+      - Can I consult with a lawyer through Tele-Law services?
+      - What is the first step in using Tele-Law?
+      - How effective is Tele-Law for legal consultations?
+      - Do I need to pay upfront for Tele-Law services?
+      - Is Tele-Law available for all types of legal cases?
+      - How quickly can I get help through Tele-Law?
+      - Can I use Tele-Law for family law matters?
+      - What platforms can I use to access Tele-Law?
+      - How do I cancel a Tele-Law appointment?
+      - What kind of lawyers are available through Tele-Law?
+      - Can I provide feedback about Tele-Law services?
+      - How do I get updates on my Tele-Law case?
+
+
+  - intent: live_stream
+    examples: |
+      - Can I watch live court cases?
+      - Live stream court cases
+      - Watch court proceedings live
+      - Show me the live stream.
+      - I want to watch the Supreme Court live.
+      - Show me live stream.
+      - I want to watch the High Court live.
+      - How can I watch court cases live?
+      - Is there a live stream of the court today?
+      - Can I view live court sessions?
+      - I’d like to see the live court stream.
+      - Where can I watch live court hearings?
+      - Is the Supreme Court live stream available?
+      - I want to see the latest court live stream.
+      - Can I get the link to the live court stream?
+      - What time does the Supreme Court live stream start?
+      - Are there live streams for the High Court?
+      - Can I access the live stream for court cases?
+      - I want to follow the live proceedings of the court.
+      - Can you show me the link for live court broadcasts?
+      - How do I watch the High Court live?
+      - Is the live stream for today's court available?
+      - Can I tune into live court hearings?
+      - I want to catch the live stream of court proceedings.
+      - Where can I find the live stream for the Supreme Court?
+      - Are there any upcoming live court streams?
+      - I’d like to watch the live court coverage.
+      - Can I watch court sessions live online?
+      - Show me the Supreme Court live broadcast.
+      - How can I view live court proceedings?
+      - I want to see the High Court sessions live.
+      - Is there a way to watch the live stream of the court?
+
+
+  - intent: download_app
+    examples: |
+      - How to download eCourts mobile app?
+      - Download eCourts app
+      - Get eCourts Services Mobile App
+      - Where can I find the eCourts app?
+      - Can you help me download the eCourts app?
+      - I want to install the eCourts mobile application.
+      - How do I get the eCourts app on my phone?
+      - Is the eCourts app available for download?
+      - Can you show me how to download the eCourts app?
+      - What’s the link to download the eCourts app?
+      - I need instructions for downloading the eCourts app.
+      - Where do I go to download the eCourts app?
+      - How can I access the eCourts mobile application?
+      - Can I download the eCourts app from the Play Store?
+      - How do I find the eCourts app in the App Store?
+      - I want to know how to get the eCourts app.
+      - Are there any guides for downloading the eCourts app?
+      - Can you provide the download link for the eCourts app?
+      - Where can I get the eCourts Services app?
+      - Is there a mobile version of the eCourts app?
+      - How to install the eCourts Services Mobile App?
+      - Can you tell me about the eCourts app download process?
+      - I’m looking to download the eCourts application.
+      - How can I download the eCourts app for Android?
+      - Is the eCourts app free to download?
+      - Where can I download the eCourts Services app?
+      - What are the steps to download the eCourts app?
+      - Can I download the eCourts app on my iPhone?
+      - How do I get the eCourts mobile app on my device?
+      - I need help with downloading the eCourts app.
+      - Where is the download section for the eCourts app?
+      - Can you provide details on downloading the eCourts app?
+      - How can I obtain the eCourts Services app?
+      - I want to download the latest version of the eCourts app.
+      - Where do I find the eCourts app for my smartphone?
+      - Can you guide me to the eCourts app download page?
+      - Is there an official website for downloading the eCourts app?
+      - How to get started with the eCourts mobile app?
+      - Can I download the eCourts app directly from a link?
+      - How do I update the eCourts app once I download it?
+      - Is the eCourts Services app available for all devices?
+      - How can I report an issue with downloading the eCourts app?
+      - I want to learn more about the eCourts mobile application.
+      - Are there any requirements for downloading the eCourts app?
+      - Where can I find reviews of the eCourts app?
+      - How do I find the eCourts app features before downloading?
+      - Can I download the eCourts app on my tablet?
+      - I need the link to the eCourts app download.
+      - How to download and install the eCourts app?
+      - Can you help me troubleshoot my eCourts app download?
+      - What platforms support the eCourts mobile app download?
+
+  - intent: state_input
+    examples: |
+      - I want to watch in [Delhi](state)
+      - Show me the High Court in [Bombay](state)
+      - Live stream for [Calcutta](state)
+      - I want to see the High Court in [Andhra](state)
+
+  - intent: redirect_case_status
+    examples: |
+      - I want to check my case status
+      - How do I find my case status?
+      - Where can I check the status of my case?
+      - Can you tell me the status of my case?
+      - What is the current status of my case?
+      - I need to know my case status
+      - How can I check my case status?
+      - Where do I check my case status?
+      - Please help me find my case status
+      - How can I find out the status of my case?
+      - I would like to know my case status
+      - Can you help me check my case status?
+      - I need information about my case status
+      - Is there a way to check my case status?
+      - What’s the status of my case?
+      - Where should I go to check my case status?
+      - Can you guide me on how to find my case status?
+      - I want to verify the status of my case
+      - Tell me how to check my case status
+      - What’s the procedure for checking my case status?
+      - Help me find out the status of my case
+      - Where can I see my case status?
+      - Can I get an update on my case status?
+      - How do I retrieve my case status?
+      - I’m looking for my case status
+      - Can you check the status of my case for me?
+      - I need an update on my case status
+      - Where can I obtain my case status?
+      - What do I need to do to check my case status?
+      - Can you point me to my case status?
+      - I want to verify the current status of my case
+      - Please let me know how to check my case status
+      - How can I access my case status?
+      - What steps do I follow to check my case status?
+      - Can you provide information on my case status?
+      - I need to check if there’s any update on my case
+      - How can I find the current status of my case?
+      - I’m trying to check my case status
+      - What’s the latest on my case status?
+      - I want to get the status of my case
+      - Can you tell me how to check my case?
+      - Where can I track my case status?
+      - I need to confirm the status of my case
+      - Please tell me how to find my case status
+      - How do I track my case status?
+      - Is my case status available online?
+      - Can you tell me if there's any update on my case?
+      - I'm looking for updates on my case status
+      - How can I know the status of my case?
+      - Where do I go to find my case status?
+
+  - intent: goodbye
+    examples: |
+      - Bye
+      - Goodbye
+      - See you later
+      - Catch you later
+      - Take care
+      - See you soon
+      - Farewell
+      - I'm off
+      - Adios
+      - Ciao
+      - Until next time
+      - Later
+      - Have a great day
+      - I'm leaving now
+      - Peace out
+      - I'm outta here
+      - Until we meet again
+      - So long
+      - Have a good one
+      - I'm headed out
+      - Cheers
+      - It was nice talking to you
+      - I'm signing off
+      - I'll catch you later
+      - Time to say goodbye
+      - Gotta run
+      - See you next time
+      - I'm signing off now
+      - Bye for now
+      - Until then
+      - Good night
+      - Have a lovely day
+      - I'm gonna go now
+      - Goodbye for now
+      - I must be going
+      - Wishing you well
+      - Take it easy
+      - I'm taking off
+      - Signing off
+      - It's time for me to go
+      - Until we talk again
+      - Bye-bye
+      - Adieu
+      - I'm off now
+      - Until we chat again
+      - It’s been a pleasure
+      - I'm on my way out
+      - I'm parting ways
+      - I'm moving on
+      - So long, friend
+      - I'm done for the day
+      - I’ll be on my way
+      - It's time to go
+      - I appreciate our time together
+      - It's time to part
+      - Gotta head out
+      - I need to go now
+      - I'm wrapping up
+      - Time to take my leave
+      - I must depart
+      - Until next time, take care
+      - It's been real
+      - It's been fun
+      - Bye, see you
+      - I’ll catch you on the flip side
+      - Until we connect again
+      - Off I go
+      - I'll see you around
+      - Signing out
+      - I'm exiting now
+      - It’s time for me to leave
+      - I’ll see you when I see you
+      - Keep in touch
+      - I'm heading out now
+      - It's been great chatting
+      - Let’s do this again
+      - I'm parting ways now
+      - I bid you farewell
+      - Goodbye for now, take care
+      - I’m leaving you now
+      - Bye, take care
+      - I'm off for now
+      - Until next time, stay safe
+      - Time to take my leave now
+      - Until we meet again, goodbye
+      - Wishing you all the best
+      - I’m on my way now
+      - I’ll see you later, alligator
+      - Until later
+      - Goodbye, my friend
+      - I’m heading out the door
+      - Adieu, my friend
+      - Have a good day ahead
+      - Bye, my friend
+      - I’m off to new adventures
+      - See you soon, take care
