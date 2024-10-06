@@ -1,5 +1,5 @@
-![Department of Justice](https://d3fp5tyfm1gdbn.cloudfront.net/2022/Sep/02/1662116974_DOJ-Logo.png)
-# ADHIKAAR Chatbot for the official site of Department of Justice of India.
+![Department of Justice](https://i0.wp.com/www.tridindia.com/wp-content/uploads/2022/01/gov-justice-logo.png?w=351&ssl=1)
+# ADHIKAAR - AI Chatbot for the official site of Department of Justice of India.
 We developed an interactive chatbot capable of answering queries related to the services of the Department of Justice (DoJ). The chatbot provides information on a wide range of topics, making access to judicial services more efficient and user-friendly.
 
 ## Features
@@ -36,12 +36,15 @@ We developed an interactive chatbot capable of answering queries related to the 
 
 ## Solution Design and Implementation
 
-![Rasa](https://d3fp5tyfm1gdbn.cloudfront.net/2022/Sep/02/1662116974_DOJ-Logo.png)
-### Chatbot Development
+<img src= "https://rasa.community/static/facebook-og-dc4e1962b0a58c63cd387fcea00d2225.png" alt= "Rasa logo" width= "200"/>
+
+### 1. Chatbot Development
 - Built using **Rasa**, an open-source machine learning framework.
 - The frontend was developed with **HTML**, **CSS**, and **JavaScript**, providing a user-friendly interface that can be integrated into the Department of Justice's official website.
 
-### Backend Integration
+<img src= "https://th.bing.com/th/id/OIP.z1PsRTIvCCIaMjTgUXCcIAHaCH?w=322&h=99&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt= "Rust logo" width= "200"/>
+
+### 2. Backend Integration
 - We used **Rust**, a systems programming language, for backend integration due to its high performance and security.
 - Rust ensures efficient interaction with the DoJ's databases and services, handling large datasets while maintaining performance.
 
