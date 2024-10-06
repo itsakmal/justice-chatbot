@@ -1,0 +1,553 @@
+version: "3.1"
+
+stories:
+  - story: greet user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: ask about divisions
+    steps:
+      - intent: ask_divisions
+      - action: utter_ask_divisions
+
+  - story: ask_judges_info_flow
+    steps:
+      - intent: ask_judges_info
+      - action: utter_ask_judges_info
+
+  - story: user_chooses_supreme_court
+    steps:
+      - intent: choose_court
+        entities:
+          - court: supreme
+      - action: utter_provide_supreme_court_link
+
+  - story: user_chooses_high_court
+    steps:
+      - intent: choose_court
+        entities:
+          - court: high
+      - action: utter_provide_high_court_link
+
+#here we give links to state judge
+
+  # - story: user_chooses_high_court_andhra_pradesh
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: andhra_pradesh
+  #     - action: utter_high_court_andhra_pradesh
+
+  # - story: user_chooses_high_court_assam
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: assam
+  #     - action: utter_high_court_assam
+
+  # - story: user_chooses_high_court_bihar
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: bihar
+  #     - action: utter_high_court_bihar
+
+  # - story: user_chooses_high_court_chhattisgarh
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: chhattisgarh
+  #     - action: utter_high_court_chhattisgarh
+
+  # - story: user_chooses_high_court_delhi
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: delhi
+  #     - action: utter_high_court_delhi
+
+  # - story: user_chooses_high_court_gujarat
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: gujarat
+  #     - action: utter_high_court_gujarat
+
+  # - story: user_chooses_high_court_himachal_pradesh
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: himachal_pradesh
+  #     - action: utter_high_court_himachal_pradesh
+
+  # - story: user_chooses_high_court_jammu_kashmir
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: jammu_kashmir
+  #     - action: utter_high_court_jammu_kashmir
+
+  # - story: user_chooses_high_court_jharkhand
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: jharkhand
+  #     - action: utter_high_court_jharkhand
+
+  # - story: user_chooses_high_court_karnataka
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: karnataka
+  #     - action: utter_high_court_karnataka
+
+  # - story: user_chooses_high_court_kerala
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: kerala
+  #     - action: utter_high_court_kerala
+
+  # - story: user_chooses_high_court_madhya_pradesh
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: madhya_pradesh
+  #     - action: utter_high_court_madhya_pradesh
+
+  # - story: user_chooses_high_court_manipur
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: manipur
+  #     - action: utter_high_court_manipur
+
+  # - story: user_chooses_high_court_meghalaya
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: meghalaya
+  #     - action: utter_high_court_meghalaya
+
+  # - story: user_chooses_high_court_maharashtra
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: maharashtra
+  #     - action: utter_high_court_maharashtra
+
+  # - story: user_chooses_high_court_odisha
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: odisha
+  #     - action: utter_high_court_odisha
+
+  # - story: user_chooses_high_court_punjab
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: punjab
+  #     - action: utter_high_court_punjab
+
+  # - story: user_chooses_high_court_haryana
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: haryana
+  #     - action: utter_high_court_haryana
+
+  # - story: user_chooses_high_court_rajasthan
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: rajasthan
+  #     - action: utter_high_court_rajasthan
+
+  # - story: user_chooses_high_court_sikkim
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: sikkim
+  #     - action: utter_high_court_sikkim
+
+  # - story: user_chooses_high_court_tamil_nadu
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: tamil_nadu
+  #     - action: utter_high_court_tamil_nadu
+
+  # - story: user_chooses_high_court_telangana
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: telangana
+  #     - action: utter_high_court_telangana
+
+  # - story: user_chooses_high_court_tripura
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: tripura
+  #     - action: utter_high_court_tripura
+
+  # - story: user_chooses_high_court_uttar_pradesh
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: uttar_pradesh
+  #     - action: utter_high_court_uttar_pradesh
+
+  # - story: user_chooses_high_court_uttarakhand
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: uttarakhand
+  #     - action: utter_high_court_uttarakhand
+
+  # - story: user_chooses_high_court_west_bengal
+  #   steps:
+  #     - intent: choose_state
+  #       entities:
+  #         - state: west_bengal
+  #     - action: utter_high_court_west_bengal
+
+#here we choose district court
+
+  - story: user_chooses_district_court
+    steps:
+      - intent: choose_court
+        entities:
+          - court: district
+      - action: utter_ask_state
+
+#links for each state district court
+
+  - story: user_chooses_district_court_andaman_nicobar
+    steps:
+      - intent: choose_state
+        entities:
+          - state: andaman_nicobar
+      - action: utter_provide_district_court_link_andaman_nicobar
+
+  - story: user_chooses_district_court_andhra_pradesh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: andhra_pradesh
+        - action: utter_provide_district_court_link_andhra_pradesh
+
+  - story: user_chooses_district_court_arunachal_pradesh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: arunachal_pradesh
+        - action: utter_provide_district_court_link_arunachal_pradesh
+
+  - story: user_chooses_district_court_assam
+    steps:
+        - intent: choose_state
+          entities:
+            - state: assam
+        - action: utter_provide_district_court_link_assam
+
+  - story: user_chooses_district_court_bihar
+    steps:
+        - intent: choose_state
+          entities:
+            - state: bihar
+        - action: utter_provide_district_court_link_bihar
+
+  - story: user_chooses_district_court_chandigarh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: chandigarh
+        - action: utter_provide_district_court_link_chandigarh
+
+  - story: user_chooses_district_court_chhattisgarh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: chhattisgarh
+        - action: utter_provide_district_court_link_chhattisgarh
+
+  - story: user_chooses_district_court_dadra_nagar_haveli
+    steps:
+        - intent: choose_state
+          entities:
+            - state: dadra_nagar_haveli
+        - action: utter_provide_district_court_link_dadra_nagar_haveli
+
+  - story: user_chooses_district_court_daman_diu
+    steps:
+        - intent: choose_state
+          entities:
+            - state: daman_diu
+        - action: utter_provide_district_court_link_daman_diu
+
+  - story: user_chooses_district_court_delhi
+    steps:
+        - intent: choose_state
+          entities:
+            - state: delhi
+        - action: utter_provide_district_court_link_delhi
+
+  - story: user_chooses_district_court_goa
+    steps:
+        - intent: choose_state
+          entities:
+            - state: goa
+        - action: utter_provide_district_court_link_goa
+
+  - story: user_chooses_district_court_gujarat
+    steps:
+        - intent: choose_state
+          entities:
+            - state: gujarat
+        - action: utter_provide_district_court_link_gujarat
+
+  - story: user_chooses_district_court_haryana
+    steps:
+        - intent: choose_state
+          entities:
+            - state: haryana
+        - action: utter_provide_district_court_link_haryana
+
+  - story: user_chooses_district_court_himachal_pradesh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: himachal_pradesh
+        - action: utter_provide_district_court_link_himachal_pradesh
+
+  - story: user_chooses_district_court_jammu_kashmir
+    steps:
+        - intent: choose_state
+          entities:
+            - state: jammu_kashmir
+        - action: utter_provide_district_court_link_jammu_kashmir
+
+  - story: user_chooses_district_court_jharkhand
+    steps:
+        - intent: choose_state
+          entities:
+            - state: jharkhand
+        - action: utter_provide_district_court_link_jharkhand
+
+  - story: user_chooses_district_court_karnataka
+    steps:
+        - intent: choose_state
+          entities:
+            - state: karnataka
+        - action: utter_provide_district_court_link_karnataka
+
+  - story: user_chooses_district_court_kerala
+    steps:
+        - intent: choose_state
+          entities:
+            - state: kerala
+        - action: utter_provide_district_court_link_kerala
+
+  - story: user_chooses_district_court_lakshadweep
+    steps:
+        - intent: choose_state
+          entities:
+            - state: lakshadweep
+        - action: utter_provide_district_court_link_lakshadweep
+
+  - story: user_chooses_district_court_madhya_pradesh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: madhya_pradesh
+        - action: utter_provide_district_court_link_madhya_pradesh
+
+  - story: user_chooses_district_court_manipur
+    steps:
+        - intent: choose_state
+          entities:
+            - state: manipur
+        - action: utter_provide_district_court_link_manipur
+
+  - story: user_chooses_district_court_meghalaya
+    steps:
+        - intent: choose_state
+          entities:
+            - state: meghalaya
+        - action: utter_provide_district_court_link_meghalaya
+
+  - story: user_chooses_district_court_maharashtra
+    steps:
+        - intent: choose_state
+          entities:
+            - state: maharashtra
+        - action: utter_provide_district_court_link_maharashtra
+
+  - story: user_chooses_district_court_nagaland
+    steps:
+        - intent: choose_state
+          entities:
+            - state: nagaland
+        - action: utter_provide_district_court_link_nagaland
+
+  - story: user_chooses_district_court_odisha
+    steps:
+        - intent: choose_state
+          entities:
+            - state: odisha
+        - action: utter_provide_district_court_link_odisha
+
+  - story: user_chooses_district_court_puducherry
+    steps:
+        - intent: choose_state
+          entities:
+            - state: puducherry
+        - action: utter_provide_district_court_link_puducherry
+
+  - story: user_chooses_district_court_punjab
+    steps:
+        - intent: choose_state
+          entities:
+            - state: punjab
+        - action: utter_provide_district_court_link_punjab
+
+  - story: user_chooses_district_court_rajasthan
+    steps:
+        - intent: choose_state
+          entities:
+            - state: rajasthan
+        - action: utter_provide_district_court_link_rajasthan
+
+  - story: user_chooses_district_court_sikkim
+    steps:
+        - intent: choose_state
+          entities:
+            - state: sikkim
+        - action: utter_provide_district_court_link_sikkim
+
+  - story: user_chooses_district_court_tamil_nadu
+    steps:
+        - intent: choose_state
+          entities:
+            - state: tamil_nadu
+        - action: utter_provide_district_court_link_tamil_nadu
+
+  - story: user_chooses_district_court_telangana
+    steps:
+        - intent: choose_state
+          entities:
+            - state: telangana
+        - action: utter_provide_district_court_link_telangana
+
+  - story: user_chooses_district_court_tripura
+    steps:
+        - intent: choose_state
+          entities:
+            - state: tripura
+        - action: utter_provide_district_court_link_tripura
+
+  - story: user_chooses_district_court_uttar_pradesh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: uttar_pradesh
+        - action: utter_provide_district_court_link_uttar_pradesh
+
+  - story: user_chooses_district_court_uttarakhand
+    steps:
+        - intent: choose_state
+          entities:
+            - state: uttarakhand
+        - action: utter_provide_district_court_link_uttarakhand
+
+  - story: user_chooses_district_court_west_bengal
+    steps:
+        - intent: choose_state
+          entities:
+            - state: west_bengal
+        - action: utter_provide_district_court_link_west_bengal
+
+  - story: user_chooses_district_court_ladakh
+    steps:
+        - intent: choose_state
+          entities:
+            - state: ladakh
+        - action: utter_provide_district_court_link_ladakh
+
+#other things start
+
+  - story: ask about case pendency
+    steps:
+      - intent: ask_case_pendency
+      - action: utter_ask_case_pendency
+
+  - story: ask about fine payment
+    steps:
+      - intent: ask_fine_payment
+      - action: utter_ask_fine_payment
+
+  - story: ask about fast track courts
+    steps:
+      - intent: ask_fast_track
+      - action: utter_ask_fast_track
+
+  - story: ask about eFiling
+    steps:
+      - intent: ask_efiling
+      - action: utter_ask_efiling
+
+  - story: ask about Tele-Law
+    steps:
+      - intent: ask_tele_law
+      - action: utter_ask_tele_law
+
+  - story: live stream inquiry
+    steps:
+      - intent: live_stream
+      - action: utter_live_stream_choice
+
+  - story: live stream court
+    steps:
+      - intent: live_stream
+      - action: utter_live_stream_choice
+
+  - story: live stream supreme court
+    steps:
+      - intent: live_stream_supreme  # Transition to Supreme Court stream
+      - action: utter_live_stream_supreme
+
+  - story: live stream High Court with state input
+    steps:
+      - intent: live_stream_high_court
+      - action: utter_live_stream_high_court
+
+  - story: live stream state input
+    steps:
+      - intent: state_input  # User provides state as text input
+      - action: utter_live_stream_high_court_state  # Use the captured state
+
+  - story: live stream high court 
+    steps:
+      - intent: live_stream_high_court
+      - action: utter_live_stream_high_court
+      - intent: state_input  # User provides state as text input
+      - action: utter_live_stream_high_court_state  # Use the captured state
+
+
+  - story: app download inquiry
+    steps:
+      - intent: download_app
+      - action: utter_download_app
+
+  - story: case status inquiry
+    steps:
+      - intent: redirect_case_status  # User wants to check case status
+      - action: utter_redirect_case_status  # Bot provides the case status link
+
+  - story: user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
