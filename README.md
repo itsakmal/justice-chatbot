@@ -1,3 +1,4 @@
+![Department of Justice](https://d3fp5tyfm1gdbn.cloudfront.net/2022/Sep/02/1662116974_DOJ-Logo.png)
 # ADHIKAAR Chatbot for the official site of Department of Justice of India.
 We developed an interactive chatbot capable of answering queries related to the services of the Department of Justice (DoJ). The chatbot provides information on a wide range of topics, making access to judicial services more efficient and user-friendly.
 
@@ -35,6 +36,7 @@ We developed an interactive chatbot capable of answering queries related to the 
 
 ## Solution Design and Implementation
 
+![Rasa](https://d3fp5tyfm1gdbn.cloudfront.net/2022/Sep/02/1662116974_DOJ-Logo.png)
 ### Chatbot Development
 - Built using **Rasa**, an open-source machine learning framework.
 - The frontend was developed with **HTML**, **CSS**, and **JavaScript**, providing a user-friendly interface that can be integrated into the Department of Justice's official website.
