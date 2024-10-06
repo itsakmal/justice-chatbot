@@ -1,0 +1,473 @@
+version: "3.1"
+
+
+intents:
+  - greet
+  - ask_divisions
+  #- select_state
+  - choose_state
+  - ask_judges_info
+  - ask_case_pendency
+  - ask_fine_payment
+  - ask_live_streaming
+  - live_stream_supreme
+  - live_stream_high_court
+  - ask_fast_track
+  - ask_efiling
+  - ask_tele_law
+  - choose_court
+  - live_stream
+  - download_app
+  - state_input  # Intent for state input
+  - redirect_case_status
+  - goodbye
+
+entities:
+  - court
+  - state
+
+slots:
+  court:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: court
+
+  state:
+    type: text
+    influence_conversation: true  # Optional
+    mappings:
+      - type: from_entity
+        entity: state
+
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you with the Department of Justice today?"
+
+  utter_ask_divisions:
+    - text: |
+        The Department of Justice has several divisions, listed below:
+      
+        1. [Appointments](https://doj.gov.in/division/appointments/)
+        2. [National Mission for Justice Delivery & Legal Reforms](https://doj.gov.in/division/national-mission-for-justice-delivery-and-legal-reforms/)
+        3. [Access to Justice](https://doj.gov.in/division/access-to-justice/)
+        4. [eCourts](https://doj.gov.in/division/ecourts/)
+        5. [Justice-I](https://doj.gov.in/division/justice-i/)
+        6. [Justice-II](https://doj.gov.in/division/justice-ii/)
+        7. [Administration](https://doj.gov.in/division/administration/)
+
+
+  utter_ask_judges_info:
+    - text: "Please select the court you want information about:"
+      buttons:
+        - title: "1. Supreme Court"
+          payload: "/choose_court{\"court\": \"supreme\"}"
+        - title: "2. High Court"
+          payload: "/choose_court{\"court\": \"high\"}"
+        - title: "3. District Court"
+          payload: "/choose_court{\"court\": \"district\"}"
+        - title: "4. Subordinate Court"
+          payload: "/choose_court{\"court\": \"subordinate\"}"
+
+  utter_provide_supreme_court_link:
+    - text: "Here is the list of judges for the Supreme Court: [Supreme Court Judges List PDF](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902119201310.pdf)"
+
+
+  utter_provide_high_court_link:
+    - text: |
+        Select the State you want to know about the judges:
+
+        1. [Andhra Pradesh](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021136701139.pdf)
+        2. [Assam](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902523101908.pdf)
+        3. [Bihar](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902745485903.pdf)
+        4. [Chhattisgarh](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902584825171.pdf)
+        5. [Delhi](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021529555779.pdf)
+        6. [Gujarat](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902280449300.pdf)
+        7. [Himachal Pradesh](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902638630289.pdf)
+        8. [Jammu & Kashmir](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902139305395.pdf)
+        9. [Jharkhand](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902317819889.pdf)
+        10. [Karnataka](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902308788959.pdf)
+        11. [Kerala](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021761026577.pdf)
+        12. [Madhya Pradesh](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902369738566.pdf)
+        13. [Manipur](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409042136396577.pdf)
+        14. [Meghalaya](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902498424155.pdf)
+        15. [Maharashtra](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021909604427.pdf)
+        16. [Odisha](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902902181162.pdf)
+        17. [Punjab](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902337982423.pdf)
+        18. [Haryana](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902337982423.pdf)
+        19. [Rajasthan](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902411834350.pdf)
+        20. [Sikkim](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902930487428.pdf)
+        21. [Tamil Nadu](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902959703126.pdf)
+        22. [Telangana](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902985173153.pdf)
+        23. [Tripura](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902517351389.pdf)
+        24. [Uttar Pradesh](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902375315253.pdf)
+        25. [Uttarakhand](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902532423552.pdf)
+        26. [West Bengal](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902384210237.pdf)
+
+
+#state select for high court 
+
+  # utter_ask_high_court_state:
+  #   - text: "Please select the state for which you want the High Court judges list:"
+  #     buttons:
+  #       - title: "1. Andhra Pradesh"
+  #         payload: '/select_state{"state": "andhra_pradesh"}'
+  #       - title: "2. Assam"
+  #         payload: '/select_state{"state": "assam"}'
+  #       - title: "3. Bihar"
+  #         payload: '/select_state{"state": "bihar"}'
+  #       - title: "4. Chhattisgarh"
+  #         payload: '/select_state{"state": "chhattisgarh"}'
+  #       - title: "5. Delhi"
+  #         payload: '/select_state{"state": "delhi"}'
+  #       - title: "6. Gujarat"
+  #         payload: '/select_state{"state": "gujarat"}'
+  #       - title: "7. Himachal Pradesh"
+  #         payload: '/select_state{"state": "himachal_pradesh"}'
+  #       - title: "8. Jammu & Kashmir"
+  #         payload: '/select_state{"state": "jammu_kashmir"}'
+  #       - title: "9. Jharkhand"
+  #         payload: '/select_state{"state": "jharkhand"}'
+  #       - title: "10. Karnataka"
+  #         payload: '/select_state{"state": "karnataka"}'
+  #       - title: "11. Kerala"
+  #         payload: '/select_state{"state": "kerala"}'
+  #       - title: "12. Madhya Pradesh"
+  #         payload: '/select_state{"state": "madhya_pradesh"}'
+  #       - title: "13. Manipur"
+  #         payload: '/select_state{"state": "manipur"}'
+  #       - title: "14. Meghalaya"
+  #         payload: '/select_state{"state": "meghalaya"}'
+  #       - title: "15. Maharashtra"
+  #         payload: '/select_state{"state": "maharashtra"}'
+  #       - title: "16. Odisha"
+  #         payload: '/select_state{"state": "odisha"}'
+  #       - title: "17. Punjab & Haryana"
+  #         payload: '/select_state{"state": "punjab_haryana"}'
+  #       - title: "18. Rajasthan"
+  #         payload: '/select_state{"state": "rajasthan"}'
+  #       - title: "19. Sikkim"
+  #         payload: '/select_state{"state": "sikkim"}'
+  #       - title: "20. Tamil Nadu"
+  #         payload: '/select_state{"state": "tamil_nadu"}'
+  #       - title: "21. Telangana"
+  #         payload: '/select_state{"state": "telangana"}'
+  #       - title: "22. Tripura"
+  #         payload: '/select_state{"state": "tripura"}'
+  #       - title: "23. Uttar Pradesh"
+  #         payload: '/select_state{"state": "uttar_pradesh"}'
+  #       - title: "24. Uttarakhand"
+  #         payload: '/select_state{"state": "uttarakhand"}'
+  #       - title: "25. West Bengal"
+  #         payload: '/select_state{"state": "west_bengal"}'
+
+#state select for district court
+
+  utter_ask_state:
+    - text: "Please select the State or UT you belong from:"
+      buttons:
+        - title: "1. Andaman and Nicobar"
+          payload: '/choose_state{"state": "Andaman and Nicobar"}'
+        - title: "2. Andhra Pradesh"
+          payload: '/choose_state{"state": "Andhra Pradesh"}'
+        - title: "3. Assam"
+          payload: '/choose_state{"state": "Assam"}'
+        - title: "4. Bihar"
+          payload: '/choose_state{"state": "Bihar"}'
+        - title: "5. Chandigarh"
+          payload: '/choose_state{"state": "Chandigarh"}'
+        - title: "6. Chhattisgarh"
+          payload: '/choose_state{"state": "Chhattisgarh"}'
+        - title: "7. Dadra and Nagar Haveli"
+          payload: '/choose_state{"state": "Dadra and Nagar Haveli"}'
+        - title: "8. Daman and Diu"
+          payload: '/choose_state{"state": "Daman and Diu"}'
+        - title: "9. Delhi"
+          payload: '/choose_state{"state": "Delhi"}'
+        - title: "10. Goa"
+          payload: '/choose_state{"state": "Goa"}'
+        - title: "11. Gujarat"
+          payload: '/choose_state{"state": "Gujarat"}'
+        - title: "12. Haryana"
+          payload: '/choose_state{"state": "Haryana"}'
+        - title: "13. Himachal Pradesh"
+          payload: '/choose_state{"state": "Himachal Pradesh"}'
+        - title: "14. Jammu & Kashmir"
+          payload: '/choose_state{"state": "Jammu & Kashmir"}'
+        - title: "15. Jharkhand"
+          payload: '/choose_state{"state": "Jharkhand"}'
+        - title: "16. Karnataka"
+          payload: '/choose_state{"state": "Karnataka"}'
+        - title: "17. Kerala"
+          payload: '/choose_state{"state": "Kerala"}'
+        - title: "18. Lakshadweep"
+          payload: '/choose_state{"state": "Lakshadweep"}'
+        - title: "19. Madhya Pradesh"
+          payload: '/choose_state{"state": "Madhya Pradesh"}'
+        - title: "20. Manipur"
+          payload: '/choose_state{"state": "Manipur"}'
+        - title: "21. Meghalaya"
+          payload: '/choose_state{"state": "Meghalaya"}'
+        - title: "22. Maharashtra"
+          payload: '/choose_state{"state": "Maharashtra"}'
+        - title: "23. Nagaland"
+          payload: '/choose_state{"state": "Nagaland"}'
+        - title: "24. Odisha"
+          payload: '/choose_state{"state": "Odisha"}'
+        - title: "25. Puducherry"
+          payload: '/choose_state{"state": "Puducherry"}'
+        - title: "26. Punjab"
+          payload: '/choose_state{"state": "Punjab"}'
+        - title: "27. Rajasthan"
+          payload: '/choose_state{"state": "Rajasthan"}'
+        - title: "28. Sikkim"
+          payload: '/choose_state{"state": "Sikkim"}'
+        - title: "29. Tamil Nadu"
+          payload: '/choose_state{"state": "Tamil Nadu"}'
+        - title: "30. Telangana"
+          payload: '/choose_state{"state": "Telangana"}'
+        - title: "31. Tripura"
+          payload: '/choose_state{"state": "Tripura"}'
+        - title: "32. Uttar Pradesh"
+          payload: '/choose_state{"state": "Uttar Pradesh"}'
+        - title: "33. Uttarakhand"
+          payload: '/choose_state{"state": "Uttarakhand"}'
+        - title: "34. West Bengal"
+          payload: '/choose_state{"state": "West Bengal"}'
+        - title: "35. Ladakh"
+          payload: '/choose_state{"state": "Ladakh"}'
+        - title: "36. Mizoram"
+          payload: '/choose_state{"state": "Mizoram"}'
+
+#high court judge links
+
+  # utter_high_court_andhra_pradesh:
+  #   - text: "You can view the details for Andhra Pradesh [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021136701139.pdf)."
+
+  # utter_high_court_assam:
+  #   - text: "You can view the details for Assam [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902523101908.pdf)."
+
+  # utter_high_court_bihar:
+  #   - text: "You can view the details for Bihar [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902745485903.pdf)."
+
+  # utter_high_court_chhattisgarh:
+  #   - text: "You can view the details for Chhattisgarh [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902584825171.pdf)."
+
+  # utter_high_court_delhi:
+  #   - text: "You can view the details for Delhi [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021529555779.pdf)."
+
+  # utter_high_court_gujarat:
+  #   - text: "You can view the details for Gujarat [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902280449300.pdf)."
+
+  # utter_high_court_himachal_pradesh:
+  #   - text: "You can view the details for Himachal Pradesh [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902638630289.pdf)."
+
+  # utter_high_court_jammu_kashmir:
+  #   - text: "You can view the details for Jammu & Kashmir [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902139305395.pdf)."
+
+  # utter_high_court_jharkhand:
+  #   - text: "You can view the details for Jharkhand [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902317819889.pdf)."
+
+  # utter_high_court_karnataka:
+  #   - text: "You can view the details for Karnataka [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902308788959.pdf)."
+
+  # utter_high_court_kerala:
+  #   - text: "You can view the details for Kerala [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021761026577.pdf)."
+
+  # utter_high_court_madhya_pradesh:
+  #   - text: "You can view the details for Madhya Pradesh [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902369738566.pdf)."
+
+  # utter_high_court_manipur:
+  #   - text: "You can view the details for Manipur [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409042136396577.pdf)."
+
+  # utter_high_court_meghalaya:
+  #   - text: "You can view the details for Meghalaya [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902498424155.pdf)."
+
+  # utter_high_court_maharashtra:
+  #   - text: "You can view the details for Maharashtra [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/202409021909604427.pdf)."
+
+  # utter_high_court_odisha:
+  #   - text: "You can view the details for Odisha [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902902181162.pdf)."
+
+  # utter_high_court_punjab:
+  #   - text: "You can view the details for Punjab [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902337982423.pdf)."
+
+  # utter_high_court_haryana:
+  #   - text: "You can view the details for Haryana [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902337982423.pdf)."
+
+  # utter_high_court_rajasthan:
+  #   - text: "You can view the details for Rajasthan [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902411834350.pdf)."
+
+  # utter_high_court_sikkim:
+  #   - text: "You can view the details for Sikkim [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902930487428.pdf)."
+
+  # utter_high_court_tamil_nadu:
+  #   - text: "You can view the details for Tamil Nadu [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902959703126.pdf)."
+
+  # utter_high_court_telangana:
+  #   - text: "You can view the details for Telangana [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902985173153.pdf)."
+
+  # utter_high_court_tripura:
+  #   - text: "You can view the details for Tripura [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902517351389.pdf)."
+
+  # utter_high_court_uttar_pradesh:
+  #   - text: "You can view the details for Uttar Pradesh [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902375315253.pdf)."
+
+  # utter_high_court_uttarakhand:
+  #   - text: "You can view the details for Uttarakhand [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902532423552.pdf)."
+
+  # utter_high_court_west_bengal:
+  #   - text: "You can view the details for West Bengal [here](https://cdnbbsr.s3waas.gov.in/s35d6646aad9bcc0be55b2c82f69750387/uploads/2024/09/20240902384210237.pdf)."
+  
+#district court judge links
+  utter_provide_district_court_link_andaman_nicobar:
+    - text: "Here is the district court link for Andaman and Nicobar: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/andaman' target='_blank'>Andaman and Nicobar District Court</a>."
+
+  utter_provide_district_court_link_andhra_pradesh:
+    - text: "Here is the district court link for Andhra Pradesh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/ap' target='_blank'>Andhra Pradesh District Court</a>."
+
+  utter_provide_district_court_link_arunachal_pradesh:
+    - text: "Here is the district court link for Arunachal Pradesh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/arunachal' target='_blank'>Arunachal Pradesh District Court</a>."
+
+  utter_provide_district_court_link_assam:
+    - text: "Here is the district court link for Assam: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/assam' target='_blank'>Assam District Court</a>."
+
+  utter_provide_district_court_link_bihar:
+    - text: "Here is the district court link for Bihar: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/bihar' target='_blank'>Bihar District Court</a>."
+
+  utter_provide_district_court_link_chandigarh:
+    - text: "Here is the district court link for Chandigarh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/chandigarh_district_court' target='_blank'>Chandigarh District Court</a>."
+
+  utter_provide_district_court_link_chhattisgarh:
+    - text: "Here is the district court link for Chhattisgarh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/chhattisgarh' target='_blank'>Chhattisgarh District Court</a>."
+
+  utter_provide_district_court_link_dadra_nagar_haveli:
+    - text: "Here is the district court link for Dadra and Nagar Haveli: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/dadra' target='_blank'>Dadra and Nagar Haveli District Court</a>."
+
+  utter_provide_district_court_link_daman_diu:
+    - text: "Here is the district court link for Daman and Diu: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/damandiu' target='_blank'>Daman and Diu District Court</a>."
+
+  utter_provide_district_court_link_delhi:
+    - text: "Here is the district court link for Delhi: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/delhi' target='_blank'>Delhi District Court</a>."
+
+  utter_provide_district_court_link_goa:
+    - text: "Here is the district court link for Goa: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/goa' target='_blank'>Goa District Court</a>."
+
+  utter_provide_district_court_link_gujarat:
+    - text: "Here is the district court link for Gujarat: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/gujarat' target='_blank'>Gujarat District Court</a>."
+
+  utter_provide_district_court_link_haryana:
+    - text: "Here is the district court link for Haryana: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/haryana' target='_blank'>Haryana District Court</a>."
+
+  utter_provide_district_court_link_himachal_pradesh:
+    - text: "Here is the district court link for Himachal Pradesh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/hp' target='_blank'>Himachal Pradesh District Court</a>."
+
+  utter_provide_district_court_link_jammu_kashmir:
+    - text: "Here is the district court link for Jammu & Kashmir: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/jk' target='_blank'>Jammu & Kashmir District Court</a>."
+
+  utter_provide_district_court_link_jharkhand:
+    - text: "Here is the district court link for Jharkhand: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/jharkhand' target='_blank'>Jharkhand District Court</a>."
+
+  utter_provide_district_court_link_karnataka:
+    - text: "Here is the district court link for Karnataka: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/karnataka' target='_blank'>Karnataka District Court</a>."
+
+  utter_provide_district_court_link_kerala:
+    - text: "Here is the district court link for Kerala: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/kerala' target='_blank'>Kerala District Court</a>."
+
+  utter_provide_district_court_link_lakshadweep:
+    - text: "Here is the district court link for Lakshadweep: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/lakshadweep' target='_blank'>Lakshadweep District Court</a>."
+
+  utter_provide_district_court_link_madhya_pradesh:
+    - text: "Here is the district court link for Madhya Pradesh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/mp' target='_blank'>Madhya Pradesh District Court</a>."
+
+  utter_provide_district_court_link_manipur:
+    - text: "Here is the district court link for Manipur: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/manipur' target='_blank'>Manipur District Court</a>."
+
+  utter_provide_district_court_link_meghalaya:
+    - text: "Here is the district court link for Meghalaya: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/meghalaya' target='_blank'>Meghalaya District Court</a>."
+
+  utter_provide_district_court_link_maharashtra:
+    - text: "Here is the district court link for Maharashtra: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/maharashtra' target='_blank'>Maharashtra District Court</a>."
+
+  utter_provide_district_court_link_nagaland:
+    - text: "Here is the district court link for Nagaland: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/nagaland' target='_blank'>Nagaland District Court</a>."
+
+  utter_provide_district_court_link_odisha:
+    - text: "Here is the district court link for Odisha: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/odisha' target='_blank'>Odisha District Court</a>."
+
+  utter_provide_district_court_link_puducherry:
+    - text: "Here is the district court link for Puducherry: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/puducherry' target='_blank'>Puducherry District Court</a>."
+
+  utter_provide_district_court_link_punjab:
+    - text: "Here is the district court link for Punjab: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/punjab' target='_blank'>Punjab District Court</a>."
+
+  utter_provide_district_court_link_rajasthan:
+    - text: "Here is the district court link for Rajasthan: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/rajasthan' target='_blank'>Rajasthan District Court</a>."
+
+  utter_provide_district_court_link_sikkim:
+    - text: "Here is the district court link for Sikkim: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/sikkim' target='_blank'>Sikkim District Court</a>."
+
+  utter_provide_district_court_link_tamil_nadu:
+    - text: "Here is the district court link for Tamil Nadu: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/tn' target='_blank'>Tamil Nadu District Court</a>."
+
+  utter_provide_district_court_link_telangana:
+    - text: "Here is the district court link for Telangana: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/telangana' target='_blank'>Telangana District Court</a>."
+
+  utter_provide_district_court_link_tripura:
+    - text: "Here is the district court link for Tripura: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/tripura' target='_blank'>Tripura District Court</a>."
+
+  utter_provide_district_court_link_uttar_pradesh:
+    - text: "Here is the district court link for Uttar Pradesh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/up' target='_blank'>Uttar Pradesh District Court</a>."
+
+  utter_provide_district_court_link_uttarakhand:
+    - text: "Here is the district court link for Uttarakhand: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/uk' target='_blank'>Uttarakhand District Court</a>."
+
+  utter_provide_district_court_link_west_bengal:
+    - text: "Here is the district court link for West Bengal: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/wb' target='_blank'>West Bengal District Court</a>."
+
+  utter_provide_district_court_link_ladakh:
+    - text: "Here is the district court link for Ladakh: <p>Here is the district court link for Ladakh: <a href='https://ecourts.gov.in/ecourts_home/index.php?p=dist_court/ladakh' target='_blank'>Ladakh District Court</a></p>."
+
+  utter_live_stream_choice:
+    - text: "Which court would you like to watch live?"
+      buttons:
+        - title: "Supreme Court"
+          payload: "/live_stream_supreme"
+        - title: "High Court"
+          payload: "/live_stream_high_court"
+
+  utter_live_stream_supreme:
+    - text: "You can watch the live stream of Supreme Court cases at <a href='https://www.youtube.com/@MyChannel-h2y/streams' target='_blank'>this link</a>."
+
+  utter_live_stream_high_court:
+    - text: "You can watch the live stream of High Court cases. Please enter the name of your state:"
+
+  utter_live_stream_high_court_state:
+    - text: "You can watch the live stream of {state} High Court cases at <a href='https://www.youtube.com/@MyChannel-h2y/streams' target='_blank'>this link</a>."
+
+  utter_download_app:
+    - text: "You can download the eCourts services mobile app from the following link: <a href='https://play.google.com/store/apps/details?id=in.gov.ecourts.eCourtsServices&hl=en_IN' target='_blank'>Download eCourts App</a>."
+
+  utter_redirect_case_status:
+    - text: "You can check the status of your case by going to this link: <a href='https://services.ecourts.gov.in/ecourtindia_v6/?p=casestatus/index&app_token=449777717f3a792ccdbfc7f925cf99e8379c2a1cf5df85204b9776789253ec70' target='_blank'>Check Case Status</a>."
+
+
+  utter_ask_case_pendency:
+    - text: "You can check the pendency of cases on the National Judicial Data Grid (NJDG) by visiting <a href='https://njdg.ecourts.gov.in/njdg_public/main.php' target='_blank'>NJDG</a>."
+
+  utter_ask_fine_payment:
+    - text: "To pay traffic fines, you can visit your state's traffic police website or the <a href='https://echallan.parivahan.gov.in/' target='_blank'>eChallan portal</a>."
+
+  utter_ask_fast_track:
+    - text: "Fast Track Courts handle cases related to sensitive issues like sexual offenses and child protection. Their goal is to expedite legal proceedings. Know more about by visiting this page about <a href='https://doj.gov.in/fast-track-courts/' target='_blank'>Fast Track Courts</a>."
+
+  utter_ask_efiling:
+    - text: "For eFiling, you can visit the eCourts portal at <a href='https://efiling.ecourts.gov.in' target='_blank'>https://efiling.ecourts.gov.in</a>."
+
+  utter_ask_tele_law:
+    - text: "Tele-Law provides free legal advice through Common Service Centres (CSCs). You can find more information on the DoJ's <a href='https://tele-law.in/' target='_blank'>Tele-Law Webpage</a>."
+
+  utter_goodbye:
+    - text: "Goodbye! Feel free to reach out again if you need more assistance."
