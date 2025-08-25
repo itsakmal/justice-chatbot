@@ -1,23 +1,25 @@
-# Use the official Rasa image as a base
+# Use the official Rasa image as a base (pin to your Rasa major version if possible)
 FROM rasa/rasa:latest
 
-# Set the working directory inside the container
+# Workdir
 WORKDIR /app
 
-# Copy your bot's files into the container
+# Copy project
 COPY . .
 
-# Create a 'data' directory and move the essential training files into it
-# This is the corrected fix
-RUN mkdir data
-RUN mv nlu.yml stories.yml ./data
+# (Optional) Ensure training data is under ./data if your files live at repo root
+# This won't fail if a file is missing due to `|| true`
+RUN mkdir -p data && \
+    (mv nlu.yml data/ || true) && \
+    (mv stories.yml data/ || true) && \
+    (mv rules.yml data/ || true)
 
-# Give permissions to the user
+# Train at build time
 USER root
-
-# Train the Rasa model when the container is built
 RUN rasa train
 
-# Command to run the Rasa server when the container starts
-# --cors "*" allows your frontend to talk to this server
-CMD rasa run -m models --enable-api --cors "*" --debug --port $PORT
+# ❗ Important: Neutralize the base image entrypoint so bash can expand $PORT
+ENTRYPOINT []
+
+# Start server; use bash -lc so ${PORT} is expanded at runtime on Render
+CMD ["bash","-lc","rasa run -m models --enable-api --cors '*' --debug --port ${PORT:-5005}"]
