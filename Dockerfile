@@ -20,4 +20,4 @@ RUN rasa train
 
 # Command to run the Rasa server when the container starts
 # --cors "*" allows your frontend to talk to this server
-CMD ["run", "-m", "/app/models", "--enable-api", "--cors", "*", "--debug", "--port", "$PORT"]
+CMD rasa run -m models --enable-api --cors "*" --debug --port $PORT
