@@ -7,6 +7,11 @@ WORKDIR /app
 # Copy your bot's files into the container
 COPY . .
 
+# Create a 'data' directory and move the training files into it
+# This is the fix for the training error
+RUN mkdir data
+RUN mv nlu.yml stories.yml rules.yml ./data
+
 # Give permissions to the user
 USER root
 
